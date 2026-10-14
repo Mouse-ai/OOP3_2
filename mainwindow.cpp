@@ -22,6 +22,10 @@ MainWindow::MainWindow(QWidget *parent)
             if (ok)
             {
                 model.setA(value);
+                if (value != model.getA())
+                {
+                    aEdit->setText(QString::number(model.getA()));
+                }
             }
             else
             {
@@ -160,7 +164,11 @@ MainWindow::MainWindow(QWidget *parent)
     resize(600, 150);
 }
 void MainWindow::updateView()
-{
+{   updateCount++;
+
+    std::cout << "View update: "
+              << updateCount
+              << std::endl;
     aEdit->setText(QString::number(model.getA()));
     aSpinBox->setValue(model.getA());
     aSlider->setValue(model.getA());

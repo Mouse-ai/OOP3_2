@@ -5,7 +5,7 @@
 #include <QLineEdit>
 #include <QSpinBox>
 #include <QSlider>
-
+#include <iostream>
 #include "model.h"
 
 class MainWindow : public QWidget {
@@ -26,6 +26,7 @@ private:
     QSpinBox *cSpinBox;
     QSlider *cSlider;
     void updateView();
+    int updateCount = 0;
 };
 
 
