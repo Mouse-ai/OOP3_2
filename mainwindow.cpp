@@ -155,7 +155,7 @@ MainWindow::MainWindow(QWidget *parent)
        updateView();
    });
 
-    updateView();
+    model.initialize();
 
     resize(600, 150);
 }

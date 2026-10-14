@@ -34,6 +34,7 @@ void Model::setA(int value)
     }
     if (a != oldA || b != oldB || c != oldC)
     {
+        save();
         changed.send();
     }
 
@@ -58,6 +59,7 @@ void Model::setC(int value)
     }
     if (a != oldA || b != oldB || c != oldC)
     {
+        save();
         changed.send();
     }
 
@@ -74,6 +76,7 @@ void Model::setB(int value) {
         b = value;
     if (a != oldA || b != oldB || c != oldC)
     {
+        save();
         changed.send();
     }
 }
@@ -89,4 +92,51 @@ int Model::getMinValue() const
 int Model::getMaxValue() const
 {
     return maxValue;
+}
+void Model::save() const
+{
+    std::ofstream file("model_state.txt");
+
+    if (file.is_open())
+    {
+        file << a << " " << b << " " << c;
+    }
+}
+void Model::initialize()
+{
+    int loadedA = a;
+    int loadedB = b;
+    int loadedC = c;
+
+    std::ifstream file("model_state.txt");
+
+    if (file.is_open() && file >> loadedA >> loadedB >> loadedC)
+    {
+        if (loadedA < minValue)
+            loadedA = minValue;
+        if (loadedA > maxValue)
+            loadedA = maxValue;
+
+        if (loadedB < minValue)
+            loadedB = minValue;
+        if (loadedB > maxValue)
+            loadedB = maxValue;
+
+        if (loadedC < minValue)
+            loadedC = minValue;
+        if (loadedC > maxValue)
+            loadedC = maxValue;
+
+        if (loadedA > loadedB)
+            loadedB = loadedA;
+
+        if (loadedB > loadedC)
+            loadedC = loadedB;
+
+        a = loadedA;
+        b = loadedB;
+        c = loadedC;
+    }
+
+    changed.send();
 }

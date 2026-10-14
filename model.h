@@ -1,11 +1,11 @@
 //
 // Created by alexei on 14.10.2026.
 //
-#include "signal.h"
+
 #ifndef UNTITLED1_MODEL_H
 #define UNTITLED1_MODEL_H
-
-
+#include "signal.h"
+#include <fstream>
 class Model {
 private:
     int a;
@@ -14,6 +14,7 @@ private:
     static constexpr int minValue = 0;
     static constexpr int maxValue = 100;
     Signal changed;
+    void save() const;
 public:
     Model();
     int getA() const;
@@ -26,6 +27,7 @@ public:
     void connectChanged(std::function<void()> handler);
     int getMinValue() const;
     int getMaxValue() const;
+    void initialize();
 
 
 };
