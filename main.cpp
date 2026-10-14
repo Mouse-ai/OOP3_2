@@ -1,10 +1,25 @@
-#include <QApplication>
-#include <QPushButton>
+#include <iostream>
+#include "model.h"
 
-int main(int argc, char *argv[]) {
-    QApplication a(argc, argv);
-    QPushButton button("Hello world!", nullptr);
-    button.resize(200, 100);
-    button.show();
-    return QApplication::exec();
+int main()
+{
+    Model model;
+
+    std::cout << model.getA() << " "
+              << model.getB() << " "
+              << model.getC() << std::endl;
+
+    model.setA(90);
+
+    std::cout << model.getA() << " "
+              << model.getB() << " "
+              << model.getC() << std::endl;
+
+    model.setC(30);
+
+    std::cout << model.getA() << " "
+              << model.getB() << " "
+              << model.getC() << std::endl;
+
+    return 0;
 }
