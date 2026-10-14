@@ -17,7 +17,9 @@ add_executable(untitled1 main.cpp
         model.cpp
         model.h
         mainwindow.cpp
-        mainwindow.h)
+        mainwindow.h
+        signal.cpp
+        signal.h)
 target_link_libraries(untitled1
         Qt::Core
         Qt::Gui
