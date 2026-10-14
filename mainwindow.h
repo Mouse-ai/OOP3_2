@@ -18,6 +18,13 @@ private:
     QLineEdit *aEdit;
     QSpinBox *aSpinBox;
     QSlider *aSlider;
+    QLineEdit *bEdit;
+    QSpinBox *bSpinBox;
+    QSlider *bSlider;
+
+    QLineEdit *cEdit;
+    QSpinBox *cSpinBox;
+    QSlider *cSlider;
     void updateView();
 };
 
