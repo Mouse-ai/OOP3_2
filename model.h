@@ -24,6 +24,8 @@ public:
     void setB(int value);
     void setC(int value);
     void connectChanged(std::function<void()> handler);
+    int getMinValue() const;
+    int getMaxValue() const;
 
 
 };

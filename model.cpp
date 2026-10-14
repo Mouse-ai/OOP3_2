@@ -81,3 +81,12 @@ void Model::connectChanged(std::function<void()> handler)
 {
     changed.connect(handler);
 }
+int Model::getMinValue() const
+{
+    return minValue;
+}
+
+int Model::getMaxValue() const
+{
+    return maxValue;
+}

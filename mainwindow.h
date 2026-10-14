@@ -1,13 +1,25 @@
-//
-// Created by alexei on 14.10.2026.
-//
+#ifndef OOP3_2_MAINWINDOW_H
+#define OOP3_2_MAINWINDOW_H
 
-#ifndef UNTITLED1_MAINWINDOW_H
-#define UNTITLED1_MAINWINDOW_H
+#include <QWidget>
+#include <QLineEdit>
+#include <QSpinBox>
+#include <QSlider>
 
+#include "model.h"
 
-class Mainwindow {
+class MainWindow : public QWidget {
+public:
+    explicit MainWindow(QWidget *parent = nullptr);
+
+private:
+    Model model;
+
+    QLineEdit *aEdit;
+    QSpinBox *aSpinBox;
+    QSlider *aSlider;
+    void updateView();
 };
 
 
-#endif //UNTITLED1_MAINWINDOW_H
+#endif
